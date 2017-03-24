@@ -1,11 +1,11 @@
-import { styled } from 'styletron-react'
+import styled from 'styled-components'
 
-export const Container = styled('header', (props) => ({
-  marginBottom: '25px'
-}))
+export const Container = styled.header`
+  margin-bottom: 25px;
+`
 
-export const LinkText = styled('span', (props) => ({
-  fontSize: '14px',
-  marginRight: '15px',
-  textDecoration: props.isActive ? 'underline' : 'none'
-}))
+export const LinkText = styled.span`
+  font-size: 14px;
+  margin-right: 15px;
+  text-decoration: ${props => props.isActive ? 'underline' : 'none'};
+`

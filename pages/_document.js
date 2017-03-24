@@ -1,29 +1,20 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import React from 'react'
-import jsxFlush from 'styled-jsx/server'
-import { flush } from '../lib/styletron'
+import styleSheet from 'styled-components/lib/models/StyleSheet'
 
 export default class MyDocument extends Document {
-  static getInitialProps ({ renderPage }) {
+  static async getInitialProps ({ renderPage }) {
     const page = renderPage()
-    const styletron = flush()
-    const jsxStyles = jsxFlush()
-    const stylesheets = styletron ? styletron.getStylesheets() : []
-    return { ...page, jsxStyles, stylesheets }
+    const styles = (
+      <style dangerouslySetInnerHTML={{ __html: styleSheet.rules().map(rule => rule.cssText).join('\n') }} />
+    )
+    return { ...page, styles }
   }
+
   render () {
     return (
       <html>
         <Head>
-          {this.props.stylesheets.map((sheet, i) => (
-            <style
-              className='_styletron_hydrate_'
-              dangerouslySetInnerHTML={{ __html: sheet.css }}
-              media={sheet.media || ''}
-              key={i}
-            />
-          ))}
-          {this.props.jsxStyles}
+          <title>My page</title>
         </Head>
         <body>
           <Main />
