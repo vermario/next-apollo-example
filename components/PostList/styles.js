@@ -33,12 +33,14 @@ export const A = styled.a`
 `
 
 export const Button = styled.button`
-  align-items: center;
-  border-color: #ffffff transparent transparent transparent;
-  border-style: solid;
-  borderWidth: 6px 4px 0 4px;
-  content: '';
-  height: 0;
-  margin-right: 5px;
-  width: 0;
+  &:before {
+    align-items: center;
+    border-color: #ffffff transparent transparent transparent;
+    border-style: solid;
+    borderWidth: 6px 4px 0 4px;
+    content: '';
+    height: 0;
+    margin-right: 5px;
+    width: 0;
+  }
 `
