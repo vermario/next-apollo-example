@@ -1,7 +1,7 @@
 # Next & Apollo Example [![Build Status](https://travis-ci.org/ads1018/next-apollo-example.svg?branch=master)](https://travis-ci.org/ads1018/next-apollo-example)
 
 ## Demo
-https://next-apollo-example.now.sh
+https://next-with-apollo.now.sh
 
 ## How to use
 Install it and run
