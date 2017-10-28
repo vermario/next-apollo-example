@@ -7,7 +7,7 @@ export const Button = styled.button`
 
   &:active {
     background-color: transparent;
-  };
+  }
 
   &:before {
     align-self: center;
@@ -16,7 +16,7 @@ export const Button = styled.button`
     border-width: 0 4px 6px 4px;
     content: '';
     height: 0;
-    marginRight: 5px;
+    marginright: 5px;
     width: 0;
   }
 `

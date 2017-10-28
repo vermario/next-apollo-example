@@ -1,22 +1,24 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import styleSheet from 'styled-components/lib/models/StyleSheet'
+import { ServerStyleSheet } from 'styled-components'
 import jsxFlush from 'styled-jsx/server'
 
 export default class MyDocument extends Document {
-  static async getInitialProps ({ renderPage }) {
-    const page = renderPage()
-    const jsxStyles = jsxFlush()
-    const styles = (
-      <style dangerouslySetInnerHTML={{ __html: styleSheet.rules().map(rule => rule.cssText).join('\n') }} />
+  static getInitialProps({ renderPage }) {
+    const sheet = new ServerStyleSheet()
+    const page = renderPage(App => props =>
+      sheet.collectStyles(<App {...props} />)
     )
-    return { ...page, styles, jsxStyles }
+    const jsxStyles = jsxFlush()
+    const styleTags = sheet.getStyleElement()
+    return { ...page, styleTags, jsxStyles }
   }
 
-  render () {
+  render() {
     return (
       <html>
         <Head>
-          <title>My page</title>
+          <title>Next Apollo Example</title>
+          {this.props.styleTags}
           {this.props.jsxStyles}
         </Head>
         <body>
