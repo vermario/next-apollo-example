@@ -6,7 +6,7 @@ import withData from '../lib/apollo'
 
 export default withData(props => (
   <Main>
-    <Header pathname={props.url.pathname} />
+    <Header />
     <Submit />
     <PostList />
   </Main>

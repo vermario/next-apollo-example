@@ -3,7 +3,7 @@ import Header from '../components/Header'
 
 export default props => (
   <Main>
-    <Header pathname={props.url.pathname} />
+    <Header />
     <article>
       <h1>The Idea Behind This Example</h1>
       <p>
